@@ -19,40 +19,40 @@
                                                 <p class="text-black">
                                                     <span
                                                         class="italic text-md font-semibold underline text-blue-600/75">Category</span>
-                                                    : {{ $event->category->nom }}
+                                                    : {{ $event->category->title }}
                                                 </p>
                                             </div>
                                             <div>
-                                                @if ($event->statut == 'Pending')
+                                                @if ($event->status == 'Pending')
                                                 <div class="flex gap-2">
                                                 <form action="{{ route('updateStatus', $event->id) }}" method="post">
                                                     @csrf
                                                     @method('patch')
-                                                    <input type="hidden" name="statut" value="Accepted">
+                                                    <input type="hidden" name="status" value="Approved">
                                                     <button type="submit" class="rounded px-4 py-1 text-xs bg-green-500 text-green-100 hover:bg-green-600 duration-300">Accept</button>
                                                 </form>
                                                 
                                                 <form action="{{ route('updateStatus', $event->id) }}" method="post">
                                                     @csrf
                                                     @method('patch')
-                                                    <input type="hidden" name="statut" value="Rejected">
+                                                    <input type="hidden" name="status" value="Rejected">
                                                     <button type="submit" class="rounded px-4 py-1 text-xs bg-red-600 text-red-100 hover:bg-red-700 duration-300">Reject</button>
                                                 </form>
                                             </div>
                                                     
-                                                @elseif($event->statut == 'Accepted')
+                                                @elseif($event->status == 'Approved')
                                                     <span
-                                                        class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{{ $event->statut }}</span>
-                                                        @elseif($event->statut == 'Rejected')
+                                                        class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{{ $event->status }}</span>
+                                                        @elseif($event->status == 'Rejected')
                                                         <span
-                                                            class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-red-400 border border-red-400">{{ $event->statut }}</span>
+                                                            class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-red-400 border border-red-400">{{ $event->status }}</span>
                                                    
                                                         @endif
                                             </div>
                                         </div>
 
                                         <h1 class="flex justify-center items-center text-xl font-semibold ">
-                                            {{ $event->titre }}
+                                            {{ $event->title }}
                                         </h1>
 
                                         <div class="">
@@ -66,7 +66,7 @@
                                                             <circle cx="200" cy="200" r="95"
                                                                 fill="rgb(219, 234, 254)" />
                                                         </svg>
-                                                        <p class="ml-2 text-red-800"> {{ $event->lieu }}</p>
+                                                        <p class="ml-2 text-red-800"> {{ $event->location }}</p>
                                                     </div>
                                                     <div class="flex items-center">
                                                         <svg viewBox="0 0 24 24" height="16" width="16"
@@ -128,7 +128,7 @@
                                                                 </g>
                                                             </g>
                                                         </svg>
-                                                        <p class="ml-2"> {{ $event->places }}</p>
+                                                        <p class="ml-2"> {{ $event->totalTickets }}</p>
                                                     </div>
                                                     <div class="flex items-center">
                                                         <svg fill="#d0c00b" height="16" width="16"
@@ -145,7 +145,7 @@
                                                                 </path>
                                                             </g>
                                                         </svg>
-                                                        <p class="ml-2"> {{ $event->mode }}</p>
+                                                        <p class="ml-2"> {{ $event->acceptance }}</p>
                                                     </div>
                                                 </div>
 

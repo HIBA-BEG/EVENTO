@@ -36,7 +36,7 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
                                             <option selected disabled="">Select category</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->nom }}</option>
+                                                <option value="{{ $category->id }}">{{ $category->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -45,7 +45,7 @@
                                         <label for=""
                                             class="block mb-2 text-sm font-medium text-gray-900 text-black">Event
                                             title</label>
-                                        <input type="text" name="titre" id="titre"
+                                        <input type="text" name="title" id="title"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event title" required="">
                                     </div>
@@ -61,7 +61,7 @@
                                         <label for=""
                                             class="block mb-2 text-sm font-medium text-gray-900 text-black">Event
                                             location</label>
-                                        <input type="text" name="lieu" id="lieu"
+                                        <input type="text" name="location" id="location"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event location" required="">
                                     </div>
@@ -222,19 +222,19 @@
                                         <div class="flex justify-between">
                                             <div>
                                                 <p class="text-black">
-                                                    <span class="italic text-md font-semibold underline text-blue-600/75">Category</span> : {{ $event->category->nom }}
+                                                    <span class="italic text-md font-semibold underline text-blue-600/75">Category</span> : {{ $event->category->title }}
                                                 </p>
                                             </div>
                                             <div>
-                                               @if ($event->statut == 'Pending')
-                                                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300"> {{ $event->statut }}</span>
-                                                   @elseif($event->statut == 'Accepted')
-                                                   <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{{ $event->statut }}</span>
+                                               @if ($event->status == 'Pending')
+                                                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300"> {{ $event->status }}</span>
+                                                   @elseif($event->status == 'Approved')
+                                                   <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{{ $event->status }}</span>
                                                    @endif
                                             </div>
                                         </div>
 
-                                        <h1 class="flex justify-center items-center text-xl font-semibold ">{{ $event->titre }}
+                                        <h1 class="flex justify-center items-center text-xl font-semibold ">{{ $event->title }}
                                         </h1>
                
                                         <div class="flex justify-between">
@@ -248,7 +248,7 @@
                                                             <circle cx="200" cy="200" r="95"
                                                                 fill="rgb(219, 234, 254)" />
                                                         </svg>
-                                                        <p class="ml-2 text-red-800"> {{ $event->lieu }}</p>
+                                                        <p class="ml-2 text-red-800"> {{ $event->location }}</p>
                                                     </div>
                                                     <div class="flex items-center">
                                                         <svg fill="#919191" height="16" width="16"

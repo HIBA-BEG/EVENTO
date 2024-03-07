@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('location');
             $table->integer('totalTickets');
             $table->enum('acceptance', ['automatic', 'manual'])->default('automatic');
+            $table->enum('status', ['Pending', 'Approved','Rejected']); 
             $table->timestamps();
         });
     }

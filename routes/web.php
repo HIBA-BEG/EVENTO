@@ -65,10 +65,10 @@ Route::get('/EventsC', [EventController::class, 'viewClient'])->name('EventsC');
 
 Route::delete('/Events/{event}', [EventController::class, 'delete'])->name('deleteEvent');
 Route::put('/update-event', [EventController::class, 'update'])->name('updateEvent');
-Route::get('/eventDetails/{id}', [EventController::class, 'showDetails'])->name('eventDetails');
+Route::get('/moreDetails/{id}', [EventController::class, 'showDetails'])->name('moreDetails');
 // Route::post('/create-reservation/{eventId}', [ReservationController::class, 'createReservation'])->name('createReservation');
 // Route::get('/view-reservations/{eventId}', [ReservationController::class, 'viewReservations'])->name('viewReservations');
-// Route::patch('/update-reservation-statut/{reservationId}', [ReservationController::class, 'updateReservationStatus'])->name('updateReservationStatus');
+// Route::patch('/update-reservation-status/{reservationId}', [ReservationController::class, 'updateReservationStatus'])->name('updateReservationStatus');
 
 
 

@@ -24,7 +24,7 @@ class EventController extends Controller
     public function viewClient()
     {
         $reservation = Reservation::all();
-        $evenements = Event::where('statut', "Accepted")
+        $evenements = Event::where('status', "Approved")
         ->orderby('created_at', 'desc')
         ->get();
         return view('client.event', compact('events'), compact('reservation'));
@@ -51,19 +51,20 @@ class EventController extends Controller
                 'description' => ['required', 'string'],
                 'date' => ['required', 'date'],
                 'location' => ['required', 'string', 'max:255'],
-                'totalTickets' => 'required',
+                'totalTickets' => ['required', 'integer'],
                 'acceptance' => ['required', 'string', 'in:automatic,manual'],
+                'categoryID' => ['required', 'exists:categories,id'],
             ]);
             $user = auth()->user();
             Event::create([
                 'title' => $request->title,
                 'description' => $request->description,
-                'date' => $request->input('event_date'),
+                'date' => $request->input('date'),
                 'location' =>  $request->location,
                 'totalTickets' => $request->totalTickets,
                 'acceptance' => $request->acceptance,
                 'user_id' => $user->id,
-                'categorie_id' => $request->categorieID,
+                'category_id' => $request->categoryID,
             ]);
             return redirect()->route('Events');
         } catch (\Exception $e) {
@@ -74,46 +75,48 @@ class EventController extends Controller
     public function updateStatus(Request $request, $eventId)
     {
         $request->validate([
-            'statuts' => 'required|in:Pending,Approved,Rejected',
+            'status' => 'required|in:Pending,Approved,Rejected',
         ]);
         $event = Event::findOrFail($eventId);
-        $event->statut = $request->statut;
+        $event->status = $request->status;
         $event->save();
         return back();
     }
 
-    public function delete(Event $evenement)
+    public function delete(Event $event)
     {
-        $evenement->delete();
-        return redirect()->route('Evenements');
+        $event->delete();
+        return redirect()->route('Events');
     }
 
     public function update(Request $request)
     {
         try {
             $request->validate([
-                'titre' => ['required', 'string', 'max:255'],
+                'title' => ['required', 'string', 'max:255'],
                 'description' => ['required', 'string'],
-                'lieu' => ['required', 'string'],
-                'places' => ['required', 'integer'],
-                'mode' => ['required', 'in:automatique,manuelle'],
+                'date' => ['required', 'date'],
+                'location' => ['required', 'string', 'max:255'],
+                'totalTickets' => ['required', 'integer'],
+                'acceptance' => ['required', 'string', 'in:automatic,manual'],
             ]);
 
             $event = Event::findOrFail($request->event_id);
 
             $event->update([
-                'titre' => $request->titre,
+                'title' => $request->title,
                 'description' => $request->description,
-                'lieu' => $request->lieu,
-                'places' => $request->places,
-                'mode' => $request->mode,
-                'categorie_id' => $request->categorie,
-                'statut' => "Pending",
+                'date' => $request->input('date'),
+                'location' =>  $request->location,
+                'totalTickets' => $request->totalTickets,
+                'acceptance' => $request->acceptance,
+                'category_id' => $request->category,
+                'status' => "Pending",
             ]);
 
-            return redirect()->route('Evenements')->with('success', 'Event updated successfully');
+            return redirect()->route('Events')->with('success', 'Event updated successfully');
         } catch (\Exception $e) {
-            return redirect()->route('Evenements')->with('error', 'Error updating event');
+            return redirect()->route('Events')->with('error', 'Error updating event');
         }
     }
 
@@ -121,6 +124,6 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        return view('client.eventDetails', compact('event'));
+        return view('client.moreDetails', compact('event'));
     }
 }
