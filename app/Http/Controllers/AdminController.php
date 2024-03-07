@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Event;
+
 
 use Illuminate\Http\Request;
 
@@ -90,12 +94,12 @@ class AdminController extends Controller
     //     return back()->with('success', 'Operator deleted successfully.');
     // }
 
-    // public function Statistique()
-    // {
-    //     $userCount = User::count();
-    //     $categoryCount = Category::count();
-    //     $eventCount = event::count();
+    public function Statistics()
+    {
+        $userCount = User::count();
+        $categoryCount = Category::count();
+        $eventCount = event::count();
     
-    //     return view('dashboard', compact('userCount', 'categoryCount', 'eventCount'));
-    // }
+        return view('dashboard', compact('userCount', 'categoryCount', 'eventCount'));
+    }
 }

@@ -1,7 +1,6 @@
 <x-app-layout>
 
     <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
-        @include('layouts.navigation')
         <!-- Content -->
         <div class="flex-grow p-4 bg-gray-200">
             <section class="flex flex-wrap mt-20 mx-auto md:px-12 flex-grow">
@@ -38,7 +37,7 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
                                             <option selected disabled="">Select category</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->nom }}</option>
+                                                <option value="{{ $category->id }}">{{ $category->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -47,7 +46,7 @@
                                         <label for=""
                                             class="block mb-2 text-sm font-medium text-gray-900 text-black">Event
                                             title</label>
-                                        <input type="text" name="titre" id="titre"
+                                        <input type="text" name="title" id="title"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event title" required="">
                                     </div>
@@ -63,11 +62,11 @@
                                         <label for=""
                                             class="block mb-2 text-sm font-medium text-gray-900 text-black">Event
                                             location</label>
-                                        <input type="text" name="lieu" id="lieu"
+                                        <input type="text" name="location" id="location"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event location" required="">
                                     </div>
-                                    <div class="col-span-2">
+                                    {{-- <div class="col-span-2">
                                         <label for=""
                                             class="block mb-2 text-sm font-medium text-gray-900 text-black">Event number
                                             of
@@ -75,16 +74,16 @@
                                         <input type="number" name="places" id="places"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event places" required="">
-                                    </div>
+                                    </div> --}}
                                     <div class="col-span-2">
                                         <label for="category"
-                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">reservation
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Reservation
                                             mode</label>
                                         <select id="mode" name="mode"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
                                             <option selected disabled="">choose mode of reservation</option>
-                                            <option value="automatique">automatique</option>
-                                            <option value="manuelle">manuelle</option>
+                                            <option value="automatic">automatic</option>
+                                            <option value="manual">manual</option>
                                         </select>
                                     </div>
 
