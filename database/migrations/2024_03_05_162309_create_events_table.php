@@ -17,7 +17,10 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->string('title');
             $table->text('description');
+            $table->date('date');
             $table->string('location');
+            $table->integer('totalTickets');
+            $table->enum('acceptance', ['automatic', 'manual'])->default('automatic');
             $table->timestamps();
         });
     }

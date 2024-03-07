@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class User
+class Client
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,10 @@ class User
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if(Auth()->user()->role == 'Client'){
+            return $next($request);
+        }
+
+        abort(401);
     }
 }
