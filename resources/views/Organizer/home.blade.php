@@ -74,16 +74,17 @@
                                     </div>
                                     <div class="col-span-2">
                                         <label for=""
-                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Available tickets</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Available
+                                            tickets</label>
                                         <input type="number" name="totalTickets" id="totalTickets"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Number of tickets" required="">
                                     </div>
                                     {{-- <div class="col-span-2">
-                                        <label for="places" class="block mb-2 text-sm font-medium text-gray-900">Number of </label>
+                                        <label for="totalTickets" class="block mb-2 text-sm font-medium text-gray-900">Number of </label>
                                         <div class="flex items-center">
                                             <button type="button" id="decrement" class="px-4 py-2 border border-gray-300 rounded-l-lg">-</button>
-                                            <input type="number" name="places" id="places" value="0"
+                                            <input type="number" name="totalTickets" id="totalTickets" value="0"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-none focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
                                             <button type="button" id="increment" class="px-4 py-2 border border-gray-300 rounded-r-lg">+</button>
                                         </div>
@@ -91,7 +92,8 @@
 
                                     <div class="col-span-2">
                                         <label for="category"
-                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Reservation mode</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Reservation
+                                            mode</label>
                                         <select id="acceptance" name="acceptance"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
                                             <option selected disabled="">choose mode of reservation</option>
@@ -148,7 +150,7 @@
                                     @method('PUT')
                                     <input type="hidden" name="event_id" id="event_id">
                                     <div class="col-span-2">
-                                        <label for="categorie"
+                                        <label for="category"
                                             class="block mb-2 text-sm font-medium text-gray-900 text-black">Category</label>
                                         <select id="category" name="category"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
@@ -169,7 +171,8 @@
 
                                     <div class="col-span-2">
                                         <label for="description"
-                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Event Description</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Event
+                                            Description</label>
                                         <textarea name="description" id="description" rows="3"
                                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-blue-500 focus:border-blue-500"
                                             placeholder="Write Event description here"></textarea>
@@ -177,7 +180,8 @@
 
                                     <div class="col-span-2">
                                         <label for="location"
-                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Event location</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Event
+                                            location</label>
                                         <input type="text" name="location" id="location"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event location" required="">
@@ -191,7 +195,8 @@
 
                                     <div class="col-span-2">
                                         <label for="totalTickets"
-                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Available tickets</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Available
+                                            tickets</label>
                                         <input type="number" name="totalTickets" id="totalTickets"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event places" required="">
@@ -199,7 +204,8 @@
 
                                     <div class="col-span-2">
                                         <label for="acceptance"
-                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Reservation mode</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900 text-black">Reservation
+                                            mode</label>
                                         <select id="acceptance" name="acceptance"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
                                             <option selected disabled="">Choose mode of reservation</option>
@@ -231,6 +237,8 @@
 
                         <h2 class="text-lg font-bold">EVENTS</h2>
                     </div>
+
+
                     <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
 

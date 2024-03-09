@@ -35,13 +35,15 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role'=>['required'],
+            'banned'=>['boolean'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role'=>$request->role
+            'role'=>$request->role,
+            'banned'=>$request->has('banned')
         ]);
 
         event(new Registered($user));

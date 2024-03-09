@@ -69,8 +69,8 @@
                                         <label for=""
                                             class="block mb-2 text-sm font-medium text-gray-900 text-black">Event number
                                             of
-                                            places</label>
-                                        <input type="number" name="places" id="places"
+                                            totalTickets</label>
+                                        <input type="number" name="totalTickets" id="totalTickets"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500"
                                             placeholder="Type event places" required="">
                                     </div>
@@ -81,8 +81,8 @@
                                         <select id="mode" name="mode"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100 border-gray-500 placeholder-gray-400 text-black focus:ring-primary-500 focus:border-primary-500">
                                             <option selected disabled="">choose mode of reservation</option>
-                                            <option value="automatique">automatique</option>
-                                            <option value="manuelle">manuelle</option>
+                                            <option value="automatic">automatic</option>
+                                            <option value="manual">manual</option>
                                         </select>
                                     </div>
 

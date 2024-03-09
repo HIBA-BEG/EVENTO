@@ -12,6 +12,22 @@ class Reservation extends Model
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
+        'id',
         'status',
+        'date',
+        'numplace',
+        'event_id',
+        'user_id',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }

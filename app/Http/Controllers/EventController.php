@@ -15,21 +15,33 @@ class EventController extends Controller
     {
         $user = Auth::id();
         $categories = Category::all();
-        $evenements = Event::orderby('created_at', 'desc')
+        $events = Event::orderby('created_at', 'desc')
             ->get();
         // dd($events);
         return view('admin.allEvents', compact('events'), compact('categories'));
     }
 
-    public function viewClient()
+    public function viewClientt()
     {
         $reservation = Reservation::all();
-        $evenements = Event::where('status', "Approved")
+        $events = Event::where('status', "Approved")
         ->orderby('created_at', 'desc')
         ->get();
-        return view('client.event', compact('events'), compact('reservation'));
+        return view('client.home', compact('events'), compact('reservation'));
     }
-
+    public function viewClient(Request $request)
+    {
+        $categories = Category::all();
+        $reservation = Reservation::all();
+        $query = Event::query();
+        $query->where('status', 'Approved');
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $query->where('title', 'like', '%' . $searchTerm . '%');
+        }
+        $events = $query->orderBy('created_at', 'desc')->paginate(9);
+        return view('client.home', compact('events', 'reservation', 'categories'));
+    }
 
 
     public function view()
@@ -66,7 +78,12 @@ class EventController extends Controller
                 'user_id' => $user->id,
                 'category_id' => $request->categoryID,
             ]);
-            return redirect()->route('Events');
+
+            $categories = Category::all();
+
+        return redirect()->route('Events')->with(compact('categories'));
+
+            // return redirect()->route('Events');
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
