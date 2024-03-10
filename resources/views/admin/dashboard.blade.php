@@ -1,17 +1,80 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+    <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+        <div>
+
+        </div>
+        <div class="max-w-4xl mx-auto py-12 px-4 font-[sans-serif] text-[#333]">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-pink-100 rounded-lg p-10 border-2 border-pink-600">
+
+                    <h2 class="text-4xl font-extrabold mb-12 text-center">Statistiques</h2>
+                    <hr class="my-10 border border-pink-700">
+
+                    <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-x-20 gap-y-8">
+                        <div class="mx-auto">
+                            <div
+                                class="w-28 h-28 bg-white flex items-center justify-center shrink-0 border-2 border-pink-700 rounded-full">
+                                <h3 class="text-2xl font-extrabold">{{ $clientCount }}</h3>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-lg font-bold">Clients</p>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <div
+                                class="w-28 h-28 bg-white flex items-center justify-center shrink-0 border-2 border-pink-700 rounded-full">
+                                <h3 class="ml-2 text-md text-blue-800 font-bold">{{ $mostActiveOrganisateur }}</h3>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-lg font-bold">Most Active <br> Organisateur</p>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <div
+                                class="w-28 h-28 bg-white flex items-center justify-center shrink-0 border-2 border-pink-700 rounded-full">
+                                <h3 class="text-2xl font-extrabold">{{ $totalEvents }}</h3>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-lg font-bold">Total Events</p>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <div
+                                class="w-28 h-28 bg-white flex items-center justify-center shrink-0 border-2 border-pink-700 rounded-full">
+                                <h3 class="ml-4 text-md text-blue-800 font-bold">{{ $mostActiveClient }}</h3>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-lg font-bold">Most Active <br> Client</p>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <div
+                                class="w-28 h-28 bg-white flex items-center justify-center shrink-0 border-2 border-pink-700 rounded-full">
+                                <h3 class="text-2xl font-extrabold">{{ $organisateurCount }}</h3>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-lg font-bold">Organisateurs</p>
+                            </div>
+                        </div>
+                        <div class="mx-auto">
+                            <div
+                                class="w-28 h-28 bg-white flex items-center justify-center shrink-0 border-2 border-pink-700 rounded-full">
+                                <h3 class="ml-3 text-md text-blue-800 font-bold">{{ $mostReservedEvent }}</h3>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-lg font-bold">Most Reserved <br> Event</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
+
+
+
+
+
 </x-app-layout>

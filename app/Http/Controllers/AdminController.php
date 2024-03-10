@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Reservation;
+
 
 
 use Illuminate\Http\Request;
@@ -105,7 +107,7 @@ class AdminController extends Controller
 
     public function viewUsers()
     {
-        $users = User::where('role', '<>', 'admin')->get();
+        $users = User::where('role', '<>', 'Admin')->get();
         return view('admin.users', compact('users'));
     }
 
@@ -136,34 +138,34 @@ class AdminController extends Controller
     return redirect()->route('users')->with('error', 'User not found.');
 }
 
-public function stats()
+public function statistics ()
 {
-    $clientCount = User::where('role', 'client')->count();
-    $organisateurCount = User::where('role', 'organisateur')->count();
-    $totalEvents = Evenement::count();
-    $mostReservedEvent = Evenement::select('titre')
+    $clientCount = User::where('role', 'Client')->count();
+    $organisateurCount = User::where('role', 'Organizer')->count();
+    $totalEvents = Event::count();
+    $mostReservedEvent = Event::select('title')
     ->withCount('reservations')
     ->orderBy('reservations_count', 'desc')
-    ->value('titre');
+    ->value('title');
     $mostActiveOrganisateur = User::select('name')
-    ->where('role', 'organisateur')
-    ->withCount('evenements')
-    ->orderBy('evenements_count', 'desc')
+    ->where('role', 'Organizer')
+    ->withCount('events')
+    ->orderBy('events_count', 'desc')
     ->value('name');
 
     $mostActiveClient = User::select('name')
-    ->where('role', 'client')
+    ->where('role', 'Client')
     ->withCount('reservations')
     ->orderBy('reservations_count', 'desc')
     ->value('name');
-    $eventWithMostReservations = Evenement::select('titre')
+    $eventWithMostReservations = Event::select('title')
     ->withCount('reservations')
     ->orderBy('reservations_count', 'desc')
-    ->value('titre');
-    $mostUsedCategory = Categorie::select('nom')
+    ->value('title');
+    $mostUsedCategory = Category::select('title')
     ->withCount('events')
     ->orderBy('events_count', 'desc')
-    ->value('nom');
+    ->value('title');
     return view('admin.dashboard', compact('clientCount','organisateurCount','totalEvents','mostReservedEvent','mostActiveOrganisateur','mostActiveClient'));
 }
 

@@ -202,6 +202,9 @@
                     </div>
                 </div>
             </section>
+            <div class="mt-8 flex justify-center">
+                {{ $events->links('pagination::tailwind') }}
+            </div>
 
         </div>
     </div>

@@ -16,19 +16,19 @@ class EventController extends Controller
         $user = Auth::id();
         $categories = Category::all();
         $events = Event::orderby('created_at', 'desc')
-            ->get();
+            ->paginate(9);
         // dd($events);
         return view('admin.allEvents', compact('events'), compact('categories'));
     }
 
-    public function viewClientt()
-    {
-        $reservation = Reservation::all();
-        $events = Event::where('status', "Approved")
-        ->orderby('created_at', 'desc')
-        ->get();
-        return view('client.home', compact('events'), compact('reservation'));
-    }
+    // public function viewClientt()
+    // {
+    //     $reservation = Reservation::all();
+    //     $events = Event::where('status', "Approved")
+    //     ->orderby('created_at', 'desc')
+    //     ->get();
+    //     return view('client.home', compact('events'), compact('reservation'));
+    // }
     public function viewClient(Request $request)
     {
         $categories = Category::all();
@@ -50,7 +50,7 @@ class EventController extends Controller
         $categories = Category::all();
         $events = Event::where('user_id', $user)
             ->orderby('created_at', 'desc')
-            ->get();
+            ->paginate(9);
         // dd($events);
         return view('organizer.home', compact('events'), compact('categories'));
     }

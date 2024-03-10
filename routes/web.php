@@ -77,9 +77,9 @@ Route::get('/generate-ticket/{reservation}/{event}', [ReservationController::cla
 Route::post('/events/search', [EventController::class, 'viewClient'])->name('events.search');
 
 
-Route::get('/Users', [UserController::class, 'viewUsers'])->name('users');
-Route::put('/ban/user/{userId}',  [UserController::class, 'banUser'])->name('ban.user');
-Route::put('/Unban/user/{userId}',  [UserController::class, 'unbanUser'])->name('unban.user');
+Route::get('/Users', [AdminController::class, 'viewUsers'])->name('users');
+Route::put('/ban/user/{userId}',  [AdminController::class, 'banUser'])->name('ban.user');
+Route::put('/Unban/user/{userId}',  [AdminController::class, 'unbanUser'])->name('unban.user');
 
 
 
