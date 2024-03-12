@@ -30,14 +30,17 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
         $user = Auth::user();
 
-        if ($user->role == 'Client') {
+        $ban = auth()->user()->banned;
+        if ($ban == 1) {
+            Auth::logout();
+            return redirect()->route('login')->with('error', "Your account is currently suspended due to a violation of policies.");
+        } elseif ($user->role == 'Client') {
             return redirect()->route('client.home');
-        } else if ($user->role == 'Organizer') {
-            return redirect()->route('organizer.home');
-        } else if ($user->role == 'Admin') {
+        } elseif ($user->role == 'Admin') {
             return redirect()->route('admin.home');
+        } else {
+            return redirect()->route('organizer.home');
         }
-
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

@@ -27,13 +27,13 @@ class ReservationController extends Controller
                     'title' => $event->title,
                     'date' => now(),
                     'status' => 'Pending',
-                    'numplace' => null,
+                    'numplace' => $this->getNextPlaceNumber($event),
                     'event_id' => $event->id,
                     'user_id' => auth()->id(),
                 ]);
             }
         }
-        return redirect()->route('eventsC');
+        return redirect()->route('client.home');
     }
 
     private function getNextPlaceNumber($event)
@@ -47,7 +47,7 @@ class ReservationController extends Controller
     public function viewReservations($eventId)
     {
         $eventReservations = Reservation::where('event_id', $eventId)->get();
-        return view('organisator.reservations', ['reservations' => $eventReservations]);
+        return view('organizer.reservations', ['reservations' => $eventReservations]);
     }
 
     public function updateReservationStatus(Request $request, $reservationId){
@@ -57,10 +57,13 @@ class ReservationController extends Controller
         $reservation = Reservation::findOrFail($reservationId);
         // dd($reservation);
         $reservation->status = $request->status;
-        $reservation->numplace = $this->getNextPlaceNumber($reservation->event);
-        $reservation->event->decrement('totalTickets');
+        // $reservation->totalTickets = $this->getNextPlaceNumber($reservation->event);
+        // $reservation->event->decrement('totalTickets');
 
         $reservation->save();
+        if ($request->status === 'Approved') {
+            $reservation->event->decrement('totalTickets');
+        }
         return back();
     }
 

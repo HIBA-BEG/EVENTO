@@ -54,8 +54,8 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/Categories',[CategoryController::class, 'view'])->name('admin.home');
-Route::get('/statistics',[AdminController::class, 'statistics'])->name('statistics');
 Route::post('/Categories',[CategoryController::class, 'create'])->name('addCategory');
+Route::get('/statistics',[AdminController::class, 'statistics'])->name('statistics');
 Route::put('/Category',[CategoryController::class, 'update'])->name('updateCategory');
 Route::delete('/Categories/{category}',[CategoryController::class, 'delete'])->name('deleteCategory');
 

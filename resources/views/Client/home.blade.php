@@ -57,6 +57,9 @@
                         <div class="no-events-message-container">
                             <p class="no-events-message"></p>
                         </div>
+                        {{-- <div class="banned-message-container">
+                            <p class="banned-message"></p>
+                        </div> --}}
                         @foreach ($events as $event)
                             <div class="event my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
                                 data-event-category="{{ $event->category->id }}">
@@ -70,7 +73,7 @@
                                                     : {{ $event->category->title }}
                                                 </p>
                                             </div>
-                                            {{-- <div>
+                                            <div>
                                                 @if ($event->reservations->isEmpty())
                                                     <div class="flex gap-2">
                                                         <form
@@ -111,7 +114,7 @@
                                                         </div>
                                                     @endif
                                                 @endif
-                                            </div> --}}
+                                            </div>
                                         </div>
 
                                         <h1 class="flex justify-center items-center text-xl font-semibold ">
@@ -239,7 +242,7 @@
                                                     </div>
 
                                                 </div>
-                                                {{-- @php
+                                                @php
                                                     $userReservations = Auth::user()->reservations;
                                                 @endphp
                                                 @if ($userReservations->contains('event_id', $event->id) && $userReservations->contains('status', 'Approved'))
@@ -256,7 +259,7 @@
                                                             @endif
                                                         @endforeach
                                                     </div>
-                                                @endif --}}
+                                                @endif
 
                                             </div>
                                         </div>
@@ -280,6 +283,7 @@
             const categoryButtons = document.querySelectorAll('.category-filter-btn');
             const allEvents = document.querySelectorAll('.event');
             const noEventsMessageContainer = document.querySelector('.no-events-message-container');
+            const userBanned = true;
 
             categoryButtons.forEach(function(button) {
                 button.addEventListener('click', function() {
@@ -315,6 +319,16 @@
                     }
                 }
             }
+
+            // function showBannedMessage() {
+            //     const bannedMessage = document.querySelector('.banned-message');
+            //     if (!bannedMessage) {
+            //         const messageElement = document.createElement('p');
+            //         messageElement.textContent = 'You are banned from viewing events.';
+            //         messageElement.className = 'flex justify-center w-full banned-message';
+            //         noEventsMessageContainer.appendChild(messageElement);
+            //     }
+            // }
         });
     </script>
 

@@ -448,12 +448,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex justify-center">
-                                                    {{-- <a href="{{ route('viewReservations', $event->id) }}"
+                                                    <a href="{{ route('viewReservations', $event->id) }}"
                                                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500">
                                                         <span
                                                             class="relative px-4 py-1  bg-blue-100 dark:bg-gray-900 rounded-md ">
                                                             view reservations here </span>
-                                                    </a> --}}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
