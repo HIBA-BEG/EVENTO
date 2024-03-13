@@ -57,9 +57,6 @@
                         <div class="no-events-message-container">
                             <p class="no-events-message"></p>
                         </div>
-                        {{-- <div class="banned-message-container">
-                            <p class="banned-message"></p>
-                        </div> --}}
                         @foreach ($events as $event)
                             <div class="event my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
                                 data-event-category="{{ $event->category->id }}">
@@ -319,16 +316,7 @@
                     }
                 }
             }
-
-            // function showBannedMessage() {
-            //     const bannedMessage = document.querySelector('.banned-message');
-            //     if (!bannedMessage) {
-            //         const messageElement = document.createElement('p');
-            //         messageElement.textContent = 'You are banned from viewing events.';
-            //         messageElement.className = 'flex justify-center w-full banned-message';
-            //         noEventsMessageContainer.appendChild(messageElement);
-            //     }
-            // }
+            
         });
     </script>
 
