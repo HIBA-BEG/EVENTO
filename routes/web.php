@@ -36,16 +36,6 @@ Route::get('/organizer/home', [EventController::class, 'view'])->middleware(['au
 
 Route::get('/client/home', [EventController::class, 'viewClient'])->middleware(['auth', 'client'])->name('client.home');
 
-// Route::get('/home', function () {
-//     return view('organizer.home');
-// })->middleware(['auth', 'verified'])->name('organizer.home');
-
-
-// Route::middleware('organizer')->group(function () {
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -64,8 +54,6 @@ Route::get('/allEvents',[EventController::class, 'viewAll'])->name('allevents');
 Route::get('/Events',[EventController::class, 'view'])->name('Events');
 Route::post('/Events',[EventController::class, 'create'])->name('addEvent');
 Route::patch('/update-status/{event}', [EventController::class, 'updateStatus'])->name('updateStatus');
-
-// Route::get('/EventsC', [EventController::class, 'viewClient'])->name('EventsC');
 
 Route::delete('/Events/{event}', [EventController::class, 'delete'])->name('deleteEvent');
 Route::put('/update-event', [EventController::class, 'update'])->name('updateEvent');
