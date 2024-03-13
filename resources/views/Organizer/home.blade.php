@@ -1,8 +1,8 @@
 <x-app-layout>
 
-    <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:flex-row bg-gradient-to-r from-purple-300 to-blue-200">
         <!-- Content -->
-        <div class="flex-grow p-4 bg-gray-200">
+        <div class="flex-grow p-4 bg-gradient-to-r from-purple-300 to-blue-200">
             <section class="flex flex-wrap mt-20 mx-auto md:px-12 flex-grow">
                 <!-- Main modal -->
                 <div id="crud-modal" tabindex="-1" aria-hidden="true"

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:flex-row bg-gradient-to-r from-purple-300 to-blue-200">
         <div class="flex justify-center items-center w-full">
             <div class="flex justify-center items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl w-full">
                 <div class="flex flex-col justify-between p-4 leading-normal">

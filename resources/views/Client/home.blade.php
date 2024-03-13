@@ -1,10 +1,10 @@
 <x-app-layout>
-    <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
-        <div class="flex-grow p-4 bg-gray-200">
+    <div class="min-h-screen flex flex-col sm:flex-row bg-gradient-to-r from-purple-300 to-blue-200">
+        <div class="flex-grow p-4 bg-gradient-to-r from-purple-300 to-blue-200">
             <section class="flex flex-wrap mt-10 mx-auto md:px-12 flex-grow">
                 <div class="container mx-auto px-4 md:px-12">
                     <div class="flex justify-center bg-white rounded-xl p-2 w-40 mb-5 shadow-lg">
-                        <h2 class="text-lg font-bold">Events</h2>
+                        <h2 class="text-lg font-bold">EVENTS</h2>
                     </div>
                     <div class="mb-6 ">
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>EVENTO</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -21,43 +21,50 @@
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
-                        <a href="{{ url('/Dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        <a href="{{ url('/Dashboard') }}"
+                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                        <a href="{{ route('login') }}"
+                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                            in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                            <a href="{{ route('register') }}"
+                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
         </div>
     @endif
-    <div class="min-h-screen  px-4 w-full mx-auto sm:px-10">
+
+    <!-- component -->
+    <div class="min-h-screen  px-4 w-full mx-auto sm:px-10 bg-gradient-to-r from-purple-300 to-blue-200">
         <div class="max-w-7xl w-full mx-auto py-16 pt-20">
             <div class="grid lg:grid-cols-2 justify-center items-center gap-10">
                 <div class="max-lg:mt-12 h-full">
                     <img src="../../img/comingsoon.webp" alt="banner img" class="w-full h-full object-cover" />
                 </div>
                 <div>
-                    <h1 class="md:text-5xl text-4xl text-blue-900 font-extrabold mb-6 md:!leading-[55px]">Welcome to Evento, keep in touch
+                    <h1 class="md:text-5xl text-4xl text-blue-900 text-center font-extrabold mb-6 md:!leading-[55px]">Welcome to
+                        Evento, keep in touch
                     </h1>
                     <div class="max-w-7xl mx-auto p-6 lg:p-8">
                         <div class="flex justify-start ">
                             <div class="text-black rounded-lg max-w-xl font-[sans-serif]">
 
-                                <marquee class="text-4xl font-bold text-center mt-4 text-base font-italic"
+                                <div class="text-4xl font-bold text-center mt-4 text-base font-italic"
                                     behavior="scroll" direction="left" scrollamount="3">
                                     You can assist events by reserving or even creating your own
-                                </marquee>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-y-4 gap-x-8 mt-8">
                         <button
-                            class='bg-blue-400 flex items-center transition-all font-semibold rounded-md px-1 py-1 w-fit'>
-                            <div class="bg-blue-300 p-1">
-                                <div class=" flex bg-blue-200 p-2">
+                            class='bg-gradient-to-r to-purple-400 from-blue-300 flex items-center transition-all font-semibold rounded-md px-1 py-1 w-fit'>
+                            <div class="bg-gradient-to-r to-purple-300 from-blue-200 p-1">
+                                <div class=" flex bg-gradient-to-r to-purple-400 from-blue-300 p-2">
                                     <a href="{{ route('login') }}">Get
                                         started</a>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] fill-current ml-2"
@@ -72,7 +79,7 @@
                         </button>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

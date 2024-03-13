@@ -1,11 +1,11 @@
 <x-app-layout>
-    <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:flex-row bg-gradient-to-r from-purple-300 to-blue-200">
         <!-- Content -->
-        <div class="flex-grow p-4 bg-gray-200">
+        <div class="flex-grow p-4 bg-gradient-to-r from-purple-300 to-blue-200">
             <div class="px-6 py-8 max-w-4xl mx-auto">
                 <div class="max-w-4xl mx-auto">
-                    <div class="bg-yellow-100 border-2 border-yellow-700 rounded-3xl p-8 mb-5">
-                        <h1 class="text-3xl font-bold mb-10">Users</h1>
+                    <div class="bg-gradient-to-r to-purple-300 from-blue-200 border-2 border-yellow-700 rounded-3xl p-8 mb-5">
+                        <h1 class="text-3xl font-bold mb-10">USERS</h1>
                         <div class="text-xl font-semibold text-red-500">
                         </div>
                         <hr class="my-10 border border-yellow-700">

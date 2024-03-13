@@ -1,12 +1,12 @@
 <x-app-layout>
-    <div class="min-h-screen flex flex-col sm:flex-row bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:flex-row bg-gradient-to-r from-purple-300 to-blue-200">
 
         <div>
 
         </div>
         <div class="max-w-4xl mx-auto py-12 px-4 font-[sans-serif] text-[#333]">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-pink-100 rounded-lg p-10 border-2 border-pink-600">
+                <div class="bg-gradient-to-r to-purple-300 from-blue-200 rounded-lg p-10 border-2 border-pink-600">
 
                     <h2 class="text-4xl font-extrabold mb-12 text-center">Statistiques</h2>
                     <hr class="my-10 border border-pink-700">
