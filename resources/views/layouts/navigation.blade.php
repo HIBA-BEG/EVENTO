@@ -42,8 +42,8 @@
                         </div>
                     @elseif(auth()->user()->role == 'Client')
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <x-nav-link :href="route('Events')" :active="request()->routeIs('Events')">
-                                {{ __('Events') }}
+                            <x-nav-link :href="route('client.home')" :active="request()->routeIs('client.home')">
+                                {{ __('All Events') }}
                             </x-nav-link>
                         </div>
                     @endif
